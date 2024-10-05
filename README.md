@@ -1,8 +1,47 @@
-# React + Vite
+# Tic Tac Toe 🎮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este juego incluye un indicador de turno y persistencia del estado usando localStorage, permitiendo a los jugadores reanudar el juego incluso después de recargar la página.
 
-Currently, two official plugins are available:
+## Características ✨
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Indicador de Turno:** Muestra al jugador su próximo movimiento.
+
+- **Persistencia del Estado:** Almacena el progreso del juego en localStorage, manteniéndolo tras actualizar la página.
+
+- **Diseño Responsivo:** Diseño responsivo para una experiencia fluida en cualquier dispositivo.
+
+- **Reiniciar el Juego:** Permite restablecer el tablero y comenzar una nueva partida en cualquier momento.
+
+## Tecnologías Utilizadas 💻
+
+- **React**
+- **Tailwind CSS**
+- **Vite**
+- **StandardJS**
+- **localStorage**
+
+## Instalación 🔧
+
+1. **Clonar el repositorio**
+
+```bash
+git clone https://github.com/anibalcoder/tic-tac-toe.git
+```
+
+2. **Moverse a la carpeta del proyecto**
+
+```bash
+cd tic-tac-toe
+```
+
+3. **Instalar las dependencias**
+
+```bash
+npm install
+```
+
+4. **Levantar el servidor de desarrollo**
+
+```bash
+npm run dev
+```
