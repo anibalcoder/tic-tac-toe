@@ -1,18 +1,29 @@
 import confetti from 'canvas-confetti'
 import { useState } from 'react'
 import { ButtonReset, Board, Turn, WinnerModal } from './components/index'
-import { TURNS } from './logic/constants'
-import { verifyWinner, verifyTie } from './logic/board'
+import { TURNS, verifyWinner, verifyTie, saveGameStorage, resetGameStorage } from './logic/index'
 
 function App () {
-  const [board, setBoard] = useState(Array(9).fill(null))
-  const [turn, setTurn] = useState(TURNS.X)
+  const [board, setBoard] = useState(() => {
+    const boardFromStorage = window.localStorage.getItem('board')
+    if (boardFromStorage) return JSON.parse(boardFromStorage)
+    return Array(9).fill(null)
+  })
+
+  const [turn, setTurn] = useState(() => {
+    const turnFromStorage = window.localStorage.getItem('turn')
+    if (turnFromStorage) return turnFromStorage
+    return TURNS.X
+  })
+
   const [winner, setWinner] = useState(null)
 
   function resetGame () {
     setBoard(Array(9).fill(null))
     setTurn(TURNS.X)
     setWinner(null)
+
+    resetGameStorage()
   }
 
   function updateBoard (index) {
@@ -24,6 +35,11 @@ function App () {
 
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
     setTurn(newTurn)
+
+    saveGameStorage({
+      board: newBoard,
+      turn: newTurn
+    })
 
     const newWinner = verifyWinner(newBoard)
     const newTie = verifyTie(newBoard)
