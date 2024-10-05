@@ -71,7 +71,7 @@ function App () {
         updateBoard={updateBoard}
       />
 
-      <Turn />
+      <Turn turn={turn} />
 
       <WinnerModal
         winner={winner}
